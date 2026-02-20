@@ -1,0 +1,4 @@
+../Core/Src/state_machine.c:53:6:sched_curr_time	7
+../Core/Src/state_machine.c:68:6:check_envir_flags	3
+../Core/Src/state_machine.c:74:6:is_flag_high	5
+../Core/Src/state_machine.c:88:6:handle_water_state	19
