@@ -18,5 +18,6 @@ void    DS18B20_SampleTemp(UART_HandleTypeDef *huart);
 float   DS18B20_ReadTemp(UART_HandleTypeDef *huart);
 void UART_SetBaud(uint32_t baud, UART_HandleTypeDef *huart);
 
+void sample_temperature_sensors();
 
 #endif /* SRC_DS18B20_H_ */

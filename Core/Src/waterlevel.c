@@ -11,7 +11,6 @@
 
 //extern I2C_HandleTypeDef hi2c1;
 
-
 void waterlevel_low_read(uint8_t *data_low, I2C_HandleTypeDef *hi2c){
 	HAL_I2C_Master_Receive(hi2c, WATER_LOW_ADDR, data_low, 8, HAL_MAX_DELAY);
 }

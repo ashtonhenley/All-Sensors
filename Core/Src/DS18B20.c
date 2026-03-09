@@ -11,8 +11,9 @@
 #include "DS18B20.h"
 #include <stdint.h>
 
+extern SensorValues sensorvalues;
 extern UART_HandleTypeDef huart1;   // huart1 is defined in main.c
-
+extern UART_HandleTypeDef huart3;
 // HAL-only helper to change baud
 uint8_t DS18B20_Init(UART_HandleTypeDef *huart)
 {
@@ -94,7 +95,7 @@ float DS18B20_ReadTemp(UART_HandleTypeDef *huart)
     Temp_LSB = DS18B20_ReadByte(huart);
     Temp_MSB = DS18B20_ReadByte(huart);
     Temp = ((Temp_MSB<<8))|Temp_LSB;
-    Temperature = (float)Temp*0.1125 + 32; // Temp/16 is value in celcius. (9/5)/16 = 0.1125 (for fahrenheit)
+    Temperature = (float)Temp*0.1125 + 32; // Temp/16 is value in celsius. (9/5)/16 = 0.1125 (for fahrenheit)
     return Temperature;
 }
 
@@ -104,4 +105,11 @@ void UART_SetBaud(uint32_t baud, UART_HandleTypeDef *huart)
     huart->Init.BaudRate = baud;
     HAL_HalfDuplex_Init(huart);
 
+}
+void sample_temperature_sensors(){
+	DS18B20_SampleTemp(&huart1);
+	sensorvalues.temperature_res = DS18B20_ReadTemp(&huart1);
+
+	DS18B20_SampleTemp(&huart3);
+	sensorvalues.temperature_tank = DS18B20_ReadTemp(&huart3);
 }

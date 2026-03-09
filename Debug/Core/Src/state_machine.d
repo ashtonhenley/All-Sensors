@@ -35,8 +35,8 @@ Core/Src/state_machine.o: ../Core/Src/state_machine.c \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr_ex.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h \
- ../Core/Inc/DS18B20.h ../Core/Inc/DS3231(CLK).h ../Core/Inc/turbidity.h \
- ../Core/Inc/main.h ../Core/Inc/waterlevel.h ../Core/Inc/ph.h
+ ../Core/Inc/DS3231(CLK).h ../Core/Inc/state_logic.h \
+ ../Core/Inc/physical_controls.h
 ../Core/Inc/state_machine.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h:
@@ -74,9 +74,6 @@ Core/Src/state_machine.o: ../Core/Src/state_machine.c \
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr_ex.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h:
-../Core/Inc/DS18B20.h:
 ../Core/Inc/DS3231(CLK).h:
-../Core/Inc/turbidity.h:
-../Core/Inc/main.h:
-../Core/Inc/waterlevel.h:
-../Core/Inc/ph.h:
+../Core/Inc/state_logic.h:
+../Core/Inc/physical_controls.h:

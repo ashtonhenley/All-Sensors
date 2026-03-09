@@ -16,12 +16,23 @@ typedef struct{
 }ConditionFlags;
 
 typedef struct{
+	float max_temp;
 	uint8_t turbidity;
-	uint8_t low_ph;
-	uint8_t high_ph;
+	float low_ph;
+	float high_ph;
 }OutOfRangeValues;
+
+typedef enum
+{
+    IDLE_STATE,
+    WATER_RES_STATE,
+    HEATING_STATE,
+    AQUA_DRAIN_STATE,
+    AQUA_FILL_STATE
+} HeatingState;
+
 void sched_curr_time();
 void is_flag_high();
 void handle_water_state();
-void check_envir_flags(uint16_t turbidity_value, float ph_value);
+void check_envir_flags();
 #endif /* INC_STATE_MACHINE_H_ */

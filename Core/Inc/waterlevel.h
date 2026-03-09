@@ -12,7 +12,7 @@
 
 #define WATER_LOW_ADDR 0xEE
 #define WATER_HIGH_ADDR 0xF0
-#define THRESHOLD 100
+#define THRESHOLD 100 // changed from 5
 #define NO_TOUCH 0xFE
 
 

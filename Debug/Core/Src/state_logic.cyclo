@@ -1,0 +1,8 @@
+../Core/Src/state_logic.c:53:6:state_enter	1
+../Core/Src/state_logic.c:56:6:state_leave	1
+../Core/Src/state_logic.c:60:10:get_seconds_of_day	1
+../Core/Src/state_logic.c:67:6:idle_state	7
+../Core/Src/state_logic.c:120:6:water_res_state	2
+../Core/Src/state_logic.c:132:6:water_drain_state	5
+../Core/Src/state_logic.c:171:6:heating_state	3
+../Core/Src/state_logic.c:202:6:water_fill_state	6

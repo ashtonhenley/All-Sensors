@@ -28,6 +28,7 @@
 #include "ph.h"
 #include "state_machine.h"
 #include <stdbool.h>
+#include "mcp23017.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -71,7 +72,7 @@ SensorValues sensorvalues = {0};
 CooldownStruct cooldown = {0};
 extern DateTimeStruct curr_date_time;
 extern ScheduledWaterChange sched_date_time;
-
+extern MCP23017_HandleTypeDef htd;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -136,7 +137,15 @@ int main(void)
   // Initialize external I2C RTC
   DS3231_Init(&hi2c1);
   // Set RTC CLK rate
-  DS3231_SetRateSelect(DS3231_1HZ);
+ // DS3231_SetRateSelect(DS3231_1HZ);
+  //DS3231_SetMonth(3);
+  //DS3231_SetYear(2026);
+ // DS3231_SetDate(6);
+ // DS3231_SetHour(14);
+ //DS3231_SetMinute(29);
+  //DS3231_SetSecond(0);
+  // Initalize external GPIO
+  MCP23017_Init(&htd);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -151,6 +160,7 @@ int main(void)
 	  // Only check for scheduled water change if we're not changing water
 	  if(water_change_flag != 1){
 		  sched_curr_time();
+
 	  }
 	  if (cooldown.cooldown_flag &&
 	      timer_expired(cooldown.cooldown_sod, 60u,
@@ -597,7 +607,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
@@ -612,8 +622,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(LED_GREEN_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PB12 PB13 PB14 */
-  GPIO_InitStruct.Pin = GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14;
+  /*Configure GPIO pins : PB12 PB13 PB14 PB15 */
+  GPIO_InitStruct.Pin = GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

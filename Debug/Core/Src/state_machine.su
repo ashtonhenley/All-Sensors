@@ -1,4 +1,4 @@
-../Core/Src/state_machine.c:53:6:sched_curr_time	8	static
-../Core/Src/state_machine.c:68:6:check_envir_flags	24	static
-../Core/Src/state_machine.c:74:6:is_flag_high	8	static
-../Core/Src/state_machine.c:88:6:handle_water_state	48	static
+../Core/Src/state_machine.c:33:6:sched_curr_time	8	static
+../Core/Src/state_machine.c:52:6:check_envir_flags	16	static
+../Core/Src/state_machine.c:59:6:is_flag_high	8	static
+../Core/Src/state_machine.c:78:6:handle_water_state	8	static
